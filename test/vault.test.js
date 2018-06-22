@@ -1,4 +1,5 @@
 const expect = require("chai").expect;
+const Utilities = require("../Utilities");
 
 describe("Vault Tests", () => {
 	describe("Reverse Array", () => {
@@ -6,6 +7,8 @@ describe("Vault Tests", () => {
 			let data = "I want this job.";
 
 			// Code here
+
+			data = Utilities.reverseArray(data);
 
 			expect(["job", "this", "want", "I"]).to.deep.equal(data);
 		});
@@ -15,6 +18,8 @@ describe("Vault Tests", () => {
 			let data = ["200", "450", "2.5", "1", "505.5", "2"];
 
 			// Code here
+
+			data = Utilities.sortArray(data);
 
 			expect([1, 2, 2.5, 200, 450, 505.5]).to.deep.equal(data);
 		});
@@ -26,10 +31,17 @@ describe("Vault Tests", () => {
 
 			// Code here
 
+			// define data as a variable that can be re-declared
+			let data;
+
+			// test 1
+			data = Utilities.arrDif(data2, data1);
 			expect([8, 9, 10]).to.deep.equal(data);
 
 			// Code here
 
+			// test 2
+			data = Utilities.arrDif(data1, data2);
 			expect([1, 3, 6]).to.deep.equal(data);
 		});
 	});
@@ -46,6 +58,8 @@ describe("Vault Tests", () => {
 
 			// Code here
 
+			let distance = Utilities.haversine(place1, place2);
+
 			expect(distance).to.equal("36.91");
 		});
 	});
@@ -55,6 +69,8 @@ describe("Vault Tests", () => {
 			let time2 = "2016-06-05T15:00:00";
 
 			// Code here
+
+			const timeDiff = Utilities.humanTimeDiff(time1, time2);
 
 			expect(timeDiff).to.equal("3 hours ago");
 		});
